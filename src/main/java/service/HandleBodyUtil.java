@@ -1,6 +1,7 @@
 package service;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +11,7 @@ import java.util.Scanner;
 
 public class HandleBodyUtil {
 
-    private static final Gson jsonParser = new Gson();
+    private static final Gson jsonParser = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 
     public static <T> Optional<T> getModelFromStream(InputStream in, Class<T> returnType) {
         try (InputStream inputStream = in;

@@ -37,7 +37,7 @@ public class ExtendedDao {
         connection.close();
     }
 
-    public void getDevelopersByProject(String params) throws SQLException {
+    public static void getDevelopersByProject(String params) throws SQLException {
         Connection connection = DataSourceHolder.getDataSource().getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement

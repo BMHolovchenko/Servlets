@@ -36,5 +36,4 @@ public class ExtendedService {
     public static void getProjectsInfo() throws SQLException {
         dao.getProjectsInfo();
     }
-
 }
