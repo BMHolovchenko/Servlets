@@ -9,6 +9,7 @@ public class Project implements Identity {
     private String name;
     private String description;
     private Date date;
+    private Integer cost;
 
     @Override
     public Long getId() {
@@ -43,6 +44,14 @@ public class Project implements Identity {
         this.date = date;
     }
 
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
@@ -50,6 +59,7 @@ public class Project implements Identity {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", date=" + date +
+                ", cost=" + cost +
                 '}';
     }
 }

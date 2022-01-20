@@ -23,6 +23,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
                 <th scope="col">Date</th>
+                <th scope="col">Cost</th>
                 <th scope="col">Action</th>
              </tr>
             </thead>
@@ -38,6 +39,7 @@
                     <td><%= project.getName()  %></td>
                     <td><%= project.getDescription()  %></td>
                     <td><%= project.getDate()  %></td>
+                    <td><%= project.getCost()  %></td>
                     <td>
                             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2" role="group" aria-label="First group">

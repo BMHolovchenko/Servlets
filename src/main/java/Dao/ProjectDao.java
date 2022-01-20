@@ -32,16 +32,18 @@ public class ProjectDao extends AbstractDao <Project> {
         project.setName(resultSet.getString("name"));
         project.setDescription(resultSet.getString("description"));
         project.setDate(Date.valueOf(dateFormat.format(resultSet.getDate("date"))));
+        project.setCost(resultSet.getInt("cost"));
         return project;
     }
 
     @Override
     public Optional<Project> create(Project project) {
-        String sql = "insert into projects (name, description, date) values (?, ?, ?)";
+        String sql = "insert into projects (name, description, date, cost) values (?, ?, ?, ?)";
         DbHelper.executeWithPreparedStatement(sql, ps -> {
             ps.setString(1, project.getName());
             ps.setString(2, project.getDescription());
             ps.setDate(3, Date.valueOf(dateFormat.format(project.getDate())));
+            ps.setInt(4, project.getCost());
         });
         System.out.println("Record was created.");
         return Optional.empty();
@@ -49,12 +51,13 @@ public class ProjectDao extends AbstractDao <Project> {
 
     @Override
     public void update(Project project) {
-        String sql = "update projects set name = ?, description = ?, date = ? where id = ?";
+        String sql = "update projects set name = ?, description = ?, date = ?, cost = ? where id = ?";
         DbHelper.executeWithPreparedStatement(sql, ps -> {
             ps.setString(1, project.getName());
             ps.setString(2, project.getDescription());
             ps.setDate(3, Date.valueOf(dateFormat.format(project.getDate())));
-            ps.setLong(4, project.getId());
+            ps.setInt(4, project.getCost());
+            ps.setLong(5, project.getId());
         });
         System.out.println("Record was updated.");
     }

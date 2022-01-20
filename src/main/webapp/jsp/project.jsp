@@ -40,6 +40,12 @@
                    value="<%= project.getDate() == null ? "" : project.getDate() %>"
                    id="date" placeholder="Project date">
         </div>
+        <div class="mb-3">
+            <label for="cost" class="form-label">Cost</label>
+            <input type="text" class="form-control"
+                   value="<%= project.getCost() == null ? "" : project.getCost() %>"
+                   id="cost" placeholder="Project cost">
+        </div>
 
     </div>
     <div class="row">
@@ -55,6 +61,7 @@
     let name = document.getElementById('name');
     let description = document.getElementById('description');
     let date = document.getElementById('date');
+    let cost = document.getElementById('cost');
 
     function save() {
      let body = {
@@ -64,6 +71,7 @@
          name: name.value,
          description: description.value,
          date: date.value,
+         cost: cost.value,
       }
       <% if(project.getId() == null) {%>
          let url = '/projects';

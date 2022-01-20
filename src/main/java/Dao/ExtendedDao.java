@@ -32,7 +32,7 @@ public class ExtendedDao {
                         + params + "';");
 
         while (resultSet.next()) {
-            LOGGER.info("Salaries sum: " + resultSet.getString(1));
+            LOGGER.info(resultSet.getString(1));
         }
         connection.close();
     }
@@ -47,7 +47,7 @@ public class ExtendedDao {
                         + "where projects.name = '" + params + "';");
 
         while (resultSet.next()) {
-            LOGGER.info("Developer: " + resultSet.getString(1));
+            LOGGER.info(resultSet.getString(1));
         }
         connection.close();
     }
@@ -61,7 +61,7 @@ public class ExtendedDao {
                         + "inner join skills on developers_skills.skill_id = skills.id \n"
                         + "where skills.name = 'Java'");
         while (resultSet.next()) {
-            LOGGER.info("Java developer: " + resultSet.getString(1));
+            LOGGER.info(resultSet.getString(1));
         }
         connection.close();
     }
@@ -75,7 +75,7 @@ public class ExtendedDao {
                         + "inner join skills on developers_skills.skill_id = skills.id \n"
                         + "where skills.level = 'Middle'");
         while (resultSet.next()) {
-            LOGGER.info("Middle developer: " + resultSet.getString(1));
+            LOGGER.info(resultSet.getString(1));
         }
         connection.close();
     }
@@ -88,7 +88,7 @@ public class ExtendedDao {
                         + "inner join developers_projects on developers_projects.project_id = projects.id \n"
                         + "group by projects.date, projects.name");
         while (resultSet.next()) {
-            LOGGER.info("Project : " + resultSet.getString(1) + " "
+            LOGGER.info(resultSet.getString(1) + " "
                     + resultSet.getString(2) + " "
                     + resultSet.getString(3));
         }
