@@ -6,7 +6,8 @@
     </head>
 
 <jsp:include page="navigation.jsp" />
-
+        <div style="text-align:center">
+        <p style = "color:#3c261e; font-size:20px;">Companies Page </p></div>
 <div class="container">
     <div class="row">
     </div>
